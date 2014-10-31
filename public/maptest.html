@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+
+  </head>
+  <body>
+ <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKX3JMQ_TJzSbosn1AtpWWeNR68YC8mBA">
+    </script>
+
+
+  <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+<h3>Does Text work</h3>
+<div id="map-canvas" style="width: 30%; height: 30%"></div>
+
+  </body>
+</html>
