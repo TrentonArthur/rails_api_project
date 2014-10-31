@@ -1,15 +1,36 @@
 
-    <style>
+<!DOCTYPE html>
+<html>
+<head>
+
+
+ <style>
       #map_canvas {
-        width: 30%;
-        height: 30%;
-       background-color: #CCC;
+        width: 500px;
+        height: 400px;
+        background-color: #CCC;
       }
     </style>
 
 
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+    function initialize() {
+    var mapCanvas = document.getElementById('map_canvas');
+    var mapOptions = {
+      center: new google.maps.LatLng(<%= @the_latitude%>, <%= @the_longitude%>),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
-<div class="container">
+  </head>
+  <body>
+
+  <div class="container">
 
   <div class="row">
 
@@ -20,16 +41,19 @@
       <li class="list-group-item">The current temperature at **<%= @address %>** is **<%= @the_temperature %>   ** degrees.</li>
       <li class="list-group-item">The outlook for the next hour is: **<%= @the_hour_outlook%>**</li>
       <li class="list-group-item">The outlook for the next day is: **<%= @the_day_outlook%>**</li>
-
     </ul>
     </div>
-
+  </div>
   <div class="row">
-      <div class="col-md-12">
-      <div id="map-canvas" style="width: 30%; height: 30%"></div>
-      <h3>  Does text work here?</h3>
-      </div>
+    <div class="col-md-12">
+    <div class="page-header"><h5>Here's a map of your address</h5></div>
+
+       <div id="map_canvas"></div>
+    </div>
+
   </div>
   </div>
 
-</div>
+
+    </body>
+</html>

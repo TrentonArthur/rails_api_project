@@ -1,0 +1,54 @@
+
+<<!DOCTYPE html>
+<html>
+<head>
+
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKX3JMQ_TJzSbosn1AtpWWeNR68YC8mBA">
+    </script>
+
+
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+
+  <title>My Weather Page</title>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-12">
+    <div class="page-header"><h4>You've made it to the Weather Page</h4></div>
+
+    <ul class="list-group">
+      <li class="list-group-item">The current temperature at **<%= @address %>** is **<%= @the_temperature %>   ** degrees.</li>
+      <li class="list-group-item">The outlook for the next hour is: **<%= @the_hour_outlook%>**</li>
+      <li class="list-group-item">The outlook for the next day is: **<%= @the_day_outlook%>**</li>
+
+    </ul>
+    </div>
+  </div>
+  <div class="row">
+
+
+  </div>
+  </div>
+
+</body>
+</html>

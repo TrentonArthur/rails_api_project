@@ -11,10 +11,10 @@ class WeatherController < ApplicationController
 
     url ="http://maps.googleapis.com/maps/api/geocode/json?address=$#{url_safe_address}"
     results = getLatLong(url)
-    the_latitude = results['lat']
-    the_longitude = results['lng']
+    @the_latitude = results['lat']
+    @the_longitude = results['lng']
 
-    latlong = [the_latitude, the_longitude]
+    latlong = [@the_latitude, @the_longitude]
 
     parsed = getWeather(latlong)
     @the_temperature = parsed['currently']['temperature']
